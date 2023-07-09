@@ -4,6 +4,7 @@ TARGET = main
 LIBS = -lxcb  
 
 
+
 all: $(TARGET)
 
 $(TARGET): $(TARGET).c
