@@ -39,8 +39,10 @@ void clean_win(xcb_connection_t *con, xcb_drawable_t win,uint32_t width, uint32_
 	xcb_flush(con);
 }
 
-xcb_point_t* vector_to_polyline(){
-
+void move_further(vector* vec){
+	for(int i=0;i<5;i++){
+		vec[i].z ++;
+	}
 }
 
 int main(){
@@ -53,12 +55,6 @@ int main(){
  	uint32_t           	mask = 0;
   	uint32_t           	values[2];
 
-  	xcb_point_t polyline[] = {
-		{0,(height/3)},
-		{(width/3),0},
-		{0,(height/3)},
-		{-(width/3),0}, 
-		{0,-(height/3)}};
 
   //opening connection to X server
 	con = xcb_connect(NULL,NULL);
@@ -98,14 +94,22 @@ int main(){
   	xcb_map_window(con, win);
   	xcb_flush(con);
   	xcb_generic_event_t *e;
-  	uint32_t count = 0;
+	vector vec[] = {{100,100,40},{100,-100,40},{-100,-100,40},{-100,100,40},{100,100,40}};
+	xcb_point_t polyline[5];
+	for(int i=0;i<5;i++){
+		polyline[i] = vector_to_polyline(vec[i],width,height);
+	}
+	uint32_t count = 0;
   	while((e = xcb_wait_for_event(con))){
     		switch (e->response_type & ~0x80){
       		case XCB_EXPOSE:
-			xcb_poly_line(con, XCB_COORD_MODE_PREVIOUS,win ,b_foreground, 5, polyline);
+			xcb_poly_line(con, XCB_COORD_MODE_ORIGIN,win ,b_foreground, 5, polyline);
 			xcb_flush(con);
-			count = handle_move(polyline,count,width);
 			usleep(5000);
+			move_further(vec);
+			for(int i=0;i<5;i++){
+				polyline[i] = vector_to_polyline(vec[i], width, height);
+			}
 			clean_win(con,win,width,height);
    			break;
       		default:
