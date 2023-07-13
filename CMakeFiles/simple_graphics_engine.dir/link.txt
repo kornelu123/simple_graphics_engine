@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/simple_graphics_engine.dir/src/main.c.o CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o -o simple_graphics_engine  /usr/local/lib/libxcb.a /usr/lib/libXau.so /usr/lib/libXdmcp.so 

@@ -1,0 +1,3 @@
+/home/j00r/simple_graphics_engine/CMakeFiles/simple_graphics_engine.dir
+/home/j00r/simple_graphics_engine/CMakeFiles/edit_cache.dir
+/home/j00r/simple_graphics_engine/CMakeFiles/rebuild_cache.dir
