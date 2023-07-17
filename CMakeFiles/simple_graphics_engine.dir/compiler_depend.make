@@ -155,8 +155,26 @@ CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o: src/vectors.c \
   /usr/include/bits/pthread_stack_min-dynamic.h \
   /usr/include/bits/pthread_stack_min.h \
   /usr/local/include/xcb/xproto.h \
-  /usr/local/include/xcb/xcb.h
+  /usr/local/include/xcb/xcb.h \
+  /usr/include/math.h \
+  /usr/include/bits/math-vector.h \
+  /usr/include/bits/libm-simd-decl-stubs.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/include/bits/flt-eval-method.h \
+  /usr/include/bits/fp-logb.h \
+  /usr/include/bits/fp-fast.h \
+  /usr/include/bits/mathcalls-helper-functions.h \
+  /usr/include/bits/mathcalls.h
 
+
+/usr/include/bits/fp-fast.h:
+
+/usr/include/bits/fp-logb.h:
+
+/usr/include/bits/flt-eval-method.h:
+
+/usr/include/bits/libm-simd-decl-stubs.h:
 
 /usr/include/bits/unistd_ext.h:
 
@@ -189,6 +207,8 @@ CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o: src/vectors.c \
 /usr/include/sched.h:
 
 /usr/include/pthread.h:
+
+/usr/include/bits/mathcalls.h:
 
 /usr/include/bits/uio_lim.h:
 
@@ -230,6 +250,8 @@ src/main.c:
 
 /usr/include/bits/libc-header-start.h:
 
+/usr/include/bits/math-vector.h:
+
 /usr/include/bits/types/__fpos_t.h:
 
 /usr/include/bits/wordsize.h:
@@ -265,6 +287,8 @@ src/vectors.c:
 /usr/include/bits/uintn-identity.h:
 
 /usr/include/bits/typesizes.h:
+
+/usr/include/math.h:
 
 inc/vectors.h:
 
@@ -311,6 +335,8 @@ inc/vectors.h:
 /usr/include/bits/types/clockid_t.h:
 
 /usr/include/bits/atomic_wide_counter.h:
+
+/usr/include/bits/mathcalls-helper-functions.h:
 
 /usr/include/bits/types/time_t.h:
 

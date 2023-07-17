@@ -94,23 +94,25 @@ int main(){
   	xcb_map_window(con, win);
   	xcb_flush(con);
   	xcb_generic_event_t *e;
-	vector vec[] = {{100,100,40},{100,-100,40},{-100,-100,40},{-100,100,40},{100,100,40}};
-	xcb_point_t polyline[5];
-	for(int i=0;i<5;i++){
-		polyline[i] = vector_to_polyline(vec[i],width,height);
-	}
+	vector vec = {90,90,90};
+	cube new_cube = create_cube(vec);
+	xcb_point_t polyline[17];
+	vector work_vec[17];
 	uint32_t count = 0;
   	while((e = xcb_wait_for_event(con))){
     		switch (e->response_type & ~0x80){
       		case XCB_EXPOSE:
-			xcb_poly_line(con, XCB_COORD_MODE_ORIGIN,win ,b_foreground, 5, polyline);
-			xcb_flush(con);
-			usleep(5000);
-			move_further(vec);
-			for(int i=0;i<5;i++){
-				polyline[i] = vector_to_polyline(vec[i], width, height);
+			for(int j=0;j<3600;j++){
+			for(int i=0;i<16;i++){
+				work_vec[i] = rotate_y(j,new_cube.vec[i]);
+				polyline[i] = vector_to_polyline(work_vec[i], width, height);
 			}
+			xcb_poly_line(con, XCB_COORD_MODE_ORIGIN,win ,b_foreground, 16, polyline);
+			xcb_flush(con);
+			sleep(30);
+			usleep(5000);
 			clean_win(con,win,width,height);
+			}
    			break;
       		default:
 			break;
