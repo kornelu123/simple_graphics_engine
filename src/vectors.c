@@ -57,9 +57,9 @@ cube create_cube(vector vec){
 	vec_n[14].x = vec.x;
 	vec_n[14].y = -vec.y;
 	vec_n[14].z = vec.z;
-	vec_n[15].x = 0;
-	vec_n[15].y = 0;
-	vec_n[15].z = 0;
+	vec_n[15].x = -vec.x;
+	vec_n[15].y = -vec.y;
+	vec_n[15].z = vec.z;
 	for(int i=0;i<15;i++){
 		new_cube.vec[i] = vec_n[i];
 	}
