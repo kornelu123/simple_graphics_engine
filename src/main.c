@@ -109,7 +109,6 @@ int main(){
 			}
 			xcb_poly_line(con, XCB_COORD_MODE_ORIGIN,win ,b_foreground, 16, polyline);
 			xcb_flush(con);
-			sleep(30);
 			usleep(5000);
 			clean_win(con,win,width,height);
 			}

@@ -9,9 +9,11 @@ xcb_point_t vector_to_polyline(vector vec, uint32_t width, uint32_t height){
 	return point; 
 }	
 
+
+
 cube create_cube(vector vec){
 	cube new_cube ;
-        vector vec_n[17];
+        vector vec_n[16];
 	vec_n[0].x = -vec.x ;
         vec_n[0].y = -vec.y;
         vec_n[0].z = -vec.z;
@@ -60,7 +62,7 @@ cube create_cube(vector vec){
 	vec_n[15].x = -vec.x;
 	vec_n[15].y = -vec.y;
 	vec_n[15].z = vec.z;
-	for(int i=0;i<15;i++){
+	for(int i=0;i<16;i++){
 		new_cube.vec[i] = vec_n[i];
 	}
 	return new_cube;

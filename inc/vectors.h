@@ -9,8 +9,13 @@ typedef struct {
 }vector;
 
 typedef struct {
-	vector vec[16];
+	int32_t count;
+	triangle tri[12];
 }cube;
+
+typedef struct {
+	vector vec[4];
+}triangle;
 
 xcb_point_t vector_to_polyline(vector vec, uint32_t width, uint32_t height);
 
