@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/j00r/simple_graphics_engine/src/animation.c" "CMakeFiles/simple_graphics_engine.dir/src/animation.c.o" "gcc" "CMakeFiles/simple_graphics_engine.dir/src/animation.c.o.d"
   "/home/j00r/simple_graphics_engine/src/main.c" "CMakeFiles/simple_graphics_engine.dir/src/main.c.o" "gcc" "CMakeFiles/simple_graphics_engine.dir/src/main.c.o.d"
   "/home/j00r/simple_graphics_engine/src/vectors.c" "CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o" "gcc" "CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o.d"
   )

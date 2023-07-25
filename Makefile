@@ -129,6 +129,30 @@ simple_graphics_engine/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_graphics_engine.dir/build.make CMakeFiles/simple_graphics_engine.dir/build
 .PHONY : simple_graphics_engine/fast
 
+src/animation.o: src/animation.c.o
+.PHONY : src/animation.o
+
+# target to build an object file
+src/animation.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_graphics_engine.dir/build.make CMakeFiles/simple_graphics_engine.dir/src/animation.c.o
+.PHONY : src/animation.c.o
+
+src/animation.i: src/animation.c.i
+.PHONY : src/animation.i
+
+# target to preprocess a source file
+src/animation.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_graphics_engine.dir/build.make CMakeFiles/simple_graphics_engine.dir/src/animation.c.i
+.PHONY : src/animation.c.i
+
+src/animation.s: src/animation.c.s
+.PHONY : src/animation.s
+
+# target to generate assembly for a file
+src/animation.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/simple_graphics_engine.dir/build.make CMakeFiles/simple_graphics_engine.dir/src/animation.c.s
+.PHONY : src/animation.c.s
+
 src/main.o: src/main.c.o
 .PHONY : src/main.o
 
@@ -186,6 +210,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... simple_graphics_engine"
+	@echo "... src/animation.o"
+	@echo "... src/animation.i"
+	@echo "... src/animation.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

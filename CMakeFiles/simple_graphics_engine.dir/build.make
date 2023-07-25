@@ -69,10 +69,24 @@ include CMakeFiles/simple_graphics_engine.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/simple_graphics_engine.dir/flags.make
 
+CMakeFiles/simple_graphics_engine.dir/src/animation.c.o: CMakeFiles/simple_graphics_engine.dir/flags.make
+CMakeFiles/simple_graphics_engine.dir/src/animation.c.o: src/animation.c
+CMakeFiles/simple_graphics_engine.dir/src/animation.c.o: CMakeFiles/simple_graphics_engine.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/j00r/simple_graphics_engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/simple_graphics_engine.dir/src/animation.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/simple_graphics_engine.dir/src/animation.c.o -MF CMakeFiles/simple_graphics_engine.dir/src/animation.c.o.d -o CMakeFiles/simple_graphics_engine.dir/src/animation.c.o -c /home/j00r/simple_graphics_engine/src/animation.c
+
+CMakeFiles/simple_graphics_engine.dir/src/animation.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/simple_graphics_engine.dir/src/animation.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/j00r/simple_graphics_engine/src/animation.c > CMakeFiles/simple_graphics_engine.dir/src/animation.c.i
+
+CMakeFiles/simple_graphics_engine.dir/src/animation.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/simple_graphics_engine.dir/src/animation.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/j00r/simple_graphics_engine/src/animation.c -o CMakeFiles/simple_graphics_engine.dir/src/animation.c.s
+
 CMakeFiles/simple_graphics_engine.dir/src/main.c.o: CMakeFiles/simple_graphics_engine.dir/flags.make
 CMakeFiles/simple_graphics_engine.dir/src/main.c.o: src/main.c
 CMakeFiles/simple_graphics_engine.dir/src/main.c.o: CMakeFiles/simple_graphics_engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/j00r/simple_graphics_engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/simple_graphics_engine.dir/src/main.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/j00r/simple_graphics_engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/simple_graphics_engine.dir/src/main.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/simple_graphics_engine.dir/src/main.c.o -MF CMakeFiles/simple_graphics_engine.dir/src/main.c.o.d -o CMakeFiles/simple_graphics_engine.dir/src/main.c.o -c /home/j00r/simple_graphics_engine/src/main.c
 
 CMakeFiles/simple_graphics_engine.dir/src/main.c.i: cmake_force
@@ -86,7 +100,7 @@ CMakeFiles/simple_graphics_engine.dir/src/main.c.s: cmake_force
 CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o: CMakeFiles/simple_graphics_engine.dir/flags.make
 CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o: src/vectors.c
 CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o: CMakeFiles/simple_graphics_engine.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/j00r/simple_graphics_engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/j00r/simple_graphics_engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o -MF CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o.d -o CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o -c /home/j00r/simple_graphics_engine/src/vectors.c
 
 CMakeFiles/simple_graphics_engine.dir/src/vectors.c.i: cmake_force
@@ -99,12 +113,14 @@ CMakeFiles/simple_graphics_engine.dir/src/vectors.c.s: cmake_force
 
 # Object files for target simple_graphics_engine
 simple_graphics_engine_OBJECTS = \
+"CMakeFiles/simple_graphics_engine.dir/src/animation.c.o" \
 "CMakeFiles/simple_graphics_engine.dir/src/main.c.o" \
 "CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o"
 
 # External object files for target simple_graphics_engine
 simple_graphics_engine_EXTERNAL_OBJECTS =
 
+simple_graphics_engine: CMakeFiles/simple_graphics_engine.dir/src/animation.c.o
 simple_graphics_engine: CMakeFiles/simple_graphics_engine.dir/src/main.c.o
 simple_graphics_engine: CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o
 simple_graphics_engine: CMakeFiles/simple_graphics_engine.dir/build.make
@@ -112,7 +128,7 @@ simple_graphics_engine: /usr/local/lib/libxcb.a
 simple_graphics_engine: /usr/lib/libXau.so
 simple_graphics_engine: /usr/lib/libXdmcp.so
 simple_graphics_engine: CMakeFiles/simple_graphics_engine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/j00r/simple_graphics_engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable simple_graphics_engine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/j00r/simple_graphics_engine/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable simple_graphics_engine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/simple_graphics_engine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

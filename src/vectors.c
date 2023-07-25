@@ -2,70 +2,54 @@
 #include <xcb/xcb.h>
 #include <math.h>
 
-#define SCALE_RATIO 500
 
 xcb_point_t vector_to_polyline(vector vec, uint32_t width, uint32_t height){
-	xcb_point_t point = { width/2 + (SCALE_RATIO* vec.x)/(SCALE_RATIO +  vec.z), height/2 + (SCALE_RATIO * vec.y)/(SCALE_RATIO +  vec.z)};
+	xcb_point_t point = { width/2 + (SCALE_RATIO* vec.x)/(SCALE_RATIO -  vec.z), height/2 + (SCALE_RATIO * vec.y)/(SCALE_RATIO -  vec.z)};
 	return point; 
 }	
 
-
-
-cube create_cube(vector vec){
-	cube new_cube ;
-        vector vec_n[16];
-	vec_n[0].x = -vec.x ;
-        vec_n[0].y = -vec.y;
-        vec_n[0].z = -vec.z;
-	vec_n[1].x = -vec.x;
-	vec_n[1].y = vec.y;
-	vec_n[1].z = -vec.z;
-	vec_n[2].x = -vec.x;
-        vec_n[2].y = vec.y;
-        vec_n[2].z = vec.z;
-	vec_n[3].x = -vec.x;
-	vec_n[3].y = -vec.y;
-	vec_n[3].z = vec.z;
-	vec_n[4].x = -vec.x;
-	vec_n[4].y = -vec.y;
-	vec_n[4].z = -vec.z;
-	vec_n[5].x = vec.x;
-	vec_n[5].y = -vec.y;
-	vec_n[5].z = -vec.z;
-	vec_n[6].x = vec.x;
-	vec_n[6].y = vec.y;
-	vec_n[6].z = -vec.z;
-	vec_n[7].x = -vec.x;
-	vec_n[7].y = vec.y;
-	vec_n[7].z = -vec.z; 
-	vec_n[8].x = -vec.x;
-	vec_n[8].y = vec.y;
-	vec_n[8].z = vec.z;
-	vec_n[9].x = vec.x;
-	vec_n[9].y = vec.y;
-	vec_n[9].z = vec.z;
-	vec_n[10].x = vec.x;
-	vec_n[10].y = vec.y;
-	vec_n[10].z = -vec.z;
-	vec_n[11].x = vec.x;
-	vec_n[11].y = -vec.y;
-	vec_n[11].z = -vec.z;
-	vec_n[12].x = vec.x;
-	vec_n[12].y = -vec.y;
-	vec_n[12].z = vec.z;
-	vec_n[13].x = vec.x;
-	vec_n[13].y = vec.y;
-	vec_n[13].z = vec.z;
-	vec_n[14].x = vec.x;
-	vec_n[14].y = -vec.y;
-	vec_n[14].z = vec.z;
-	vec_n[15].x = -vec.x;
-	vec_n[15].y = -vec.y;
-	vec_n[15].z = vec.z;
-	for(int i=0;i<16;i++){
-		new_cube.vec[i] = vec_n[i];
+vector rotate(vector vec, uint32_t deg, uint8_t rot_dir){
+	vector new_vec = vec;
+	if(!rot_dir) return new_vec;
+	if(rot_dir & ROT_X){
+		new_vec = rotate_x(deg,new_vec);
 	}
-	return new_cube;
+	if(rot_dir & ROT_Y){
+		new_vec = rotate_y(deg,new_vec);
+	}
+	if(rot_dir & ROT_Z){
+		new_vec = rotate_z(deg,new_vec);
+	}
+	return new_vec;	
+}
+
+rectangle create_rect(vector gen , vector pos){
+	rectangle new_rect ;
+	vector points[8] = {{-gen.x,-gen.y, gen.z},{-gen.x,gen.y,gen.z},{gen.x,-gen.y,gen.z},{gen.x,gen.y,gen.z},{gen.x,-gen.y,-gen.z},{gen.x,gen.y,-gen.z},{-gen.x,-gen.y,-gen.z},{-gen.x,gen.y,-gen.z}};
+	for(int i=0;i<8;i++){
+		new_rect.tri[i].vec[0] = points[i];
+		new_rect.tri[i].vec[1] = points[(i+1) % 8];
+		new_rect.tri[i].vec[2] = points[(i+2) % 8];
+		new_rect.tri[i].vec[3] = points[i];
+	}
+	new_rect.tri[10].vec[0] = points[6];
+	new_rect.tri[10].vec[1] = points[4];
+	new_rect.tri[10].vec[2] = points[2];
+	new_rect.tri[10].vec[3] = points[6];
+	new_rect.tri[11].vec[0] = points[6];
+	new_rect.tri[11].vec[1] = points[0];
+	new_rect.tri[11].vec[2] = points[2];
+	new_rect.tri[11].vec[3] = points[6];
+	new_rect.tri[9].vec[0] = points[7];
+	new_rect.tri[9].vec[1] = points[5];
+	new_rect.tri[9].vec[2] = points[3];
+	new_rect.tri[9].vec[3] = points[7];
+	new_rect.tri[8].vec[0] = points[7];
+	new_rect.tri[8].vec[1] = points[1];
+	new_rect.tri[8].vec[2] = points[3];
+	new_rect.tri[8].vec[3] = points[7];
+	new_rect.pos = pos;
+	return new_rect;
 }
 
 vector rotate_x(int deg, vector vec){
@@ -104,4 +88,5 @@ vector rotate_z(int deg, vector vec){
 	new_vec.x = (int) new_x;
 	new_vec.y = (int) new_y;
 	new_vec.z = vec.z;
+	return new_vec;
 }
