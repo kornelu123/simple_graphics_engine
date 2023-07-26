@@ -1,24 +1,25 @@
 #include "vectors.h"
 #include <xcb/xcb.h>
 #include <math.h>
+#include "animation.h"
 
-
-xcb_point_t vector_to_polyline(vector vec, uint32_t width, uint32_t height){
-	xcb_point_t point = { width/2 + (SCALE_RATIO* vec.x)/(SCALE_RATIO -  vec.z), height/2 + (SCALE_RATIO * vec.y)/(SCALE_RATIO -  vec.z)};
+xcb_point_t vector_to_polyline(vector vec,uint32_t height, uint32_t width,vector offset){
+	xcb_point_t point = { width/2 + offset.x + (SCALE_RATIO*vec.x)/(offset.z -  vec.z), height/2 + offset.y + (SCALE_RATIO * vec.y)/(offset.z -  vec.z)};
 	return point; 
 }	
 
 vector rotate(vector vec, uint32_t deg, uint8_t rot_dir){
+	double rad = (deg/1800.0)*M_PI;
 	vector new_vec = vec;
 	if(!rot_dir) return new_vec;
 	if(rot_dir & ROT_X){
-		new_vec = rotate_x(deg,new_vec);
+		new_vec = rotate_x(deg,new_vec,rad);
 	}
 	if(rot_dir & ROT_Y){
-		new_vec = rotate_y(deg,new_vec);
+		new_vec = rotate_y(deg,new_vec,rad);
 	}
 	if(rot_dir & ROT_Z){
-		new_vec = rotate_z(deg,new_vec);
+		new_vec = rotate_z(deg,new_vec,rad);
 	}
 	return new_vec;	
 }
@@ -52,8 +53,7 @@ rectangle create_rect(vector gen , vector pos){
 	return new_rect;
 }
 
-vector rotate_x(int deg, vector vec){
-	double rad = (deg/1800.0)*M_PI;
+vector rotate_x(int deg, vector vec, double rad){
 	vector new_vec ;
 	double cos_t = cos(rad);
 	double sin_t = sin(rad);
@@ -65,8 +65,7 @@ vector rotate_x(int deg, vector vec){
 	return new_vec;	
 }
 
-vector rotate_y(int deg, vector vec){
-	double rad = (deg/1800.0)*M_PI;
+vector rotate_y(int deg, vector vec, double rad){
 	vector new_vec ;
 	double cos_t = cos(rad);
 	double sin_t = sin(rad);
@@ -78,13 +77,12 @@ vector rotate_y(int deg, vector vec){
 	return new_vec;
 }
 
-vector rotate_z(int deg, vector vec){
-	double rad = (deg/1800.0)*M_PI;
+vector rotate_z(int deg, vector vec,double rad){
 	vector new_vec ;
 	double cos_t = cos(rad);
 	double sin_t = sin(rad);
 	double new_x = cos_t*vec.x - sin_t*vec.y; 
-	double new_y = sin_t*vec.x + sin_t*vec.y;
+	double new_y = sin_t*vec.x + cos_t*vec.y;
 	new_vec.x = (int) new_x;
 	new_vec.y = (int) new_y;
 	new_vec.z = vec.z;

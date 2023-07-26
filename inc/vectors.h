@@ -26,13 +26,13 @@ typedef struct {
 
 vector rotate(vector vec, uint32_t deg, uint8_t rot_dir);
 
-xcb_point_t vector_to_polyline(vector vec, uint32_t width, uint32_t height);
+xcb_point_t vector_to_polyline(vector vec,uint32_t height, uint32_t width, vector offset);
 
-vector rotate_x(int deg, vector vec);
+vector rotate_x(int deg, vector vec,double rad);
 
-vector rotate_y(int deg, vector vec);
+vector rotate_y(int deg, vector vec,double rad);
 
-vector rotate_z(int deg, vector vec);
+vector rotate_z(int deg, vector vec,double rad);
 
 rectangle create_rect(vector gen, vector pos);
 
