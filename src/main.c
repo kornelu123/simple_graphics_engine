@@ -16,7 +16,7 @@ int main(){
   	xcb_flush(wind.con);
   	xcb_generic_event_t *e;
 	vector vec = {50,50,50};
-	vector vec_pos = {100,0,500};
+	vector vec_pos = {0,0,500};
 	uint32_t count = 0;
 	rectangle new_rect = create_rect(vec,vec_pos);
   	while((e = xcb_wait_for_event(wind.con))){

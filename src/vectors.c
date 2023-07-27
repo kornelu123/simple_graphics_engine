@@ -66,20 +66,6 @@ rectangle create_rect(vector gen , vector pos ){
 }
 
 void draw_cuboid(rectangle rect, xcb_connection_t *con, xcb_drawable_t win, xcb_gcontext_t b_foreground ,vector vec_pos,uint32_t width, uint32_t height){
-	uint16_t mask = 0;
-	int32_t z_mean ;
-	int32_t x_mean ;
-	int32_t y_mean ;
-	int32_t x;
-	int32_t y;	
-	for(int i=0;i<12;i+=2){	
-		z_mean =0;
-		for(int j=0;j<3;j++){
-			z_mean += rect.tri[i].vec[j].z;
-		}
-		z_mean += rect.tri[i].vec[2].z;
-		if(z_mean > 0) mask |= (1U << i) | (1U << i+1);
-	}	
 	for(int i=0;i<12;i++){
 		if(mask & (1U << i)){
 			draw_triangle(rect.tri[i], con, win, b_foreground , vec_pos,height, width);
