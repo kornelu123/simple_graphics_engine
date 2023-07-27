@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/simple_graphics_engine.dir/src/animation.c.o"
+  "CMakeFiles/simple_graphics_engine.dir/src/animation.c.o.d"
   "CMakeFiles/simple_graphics_engine.dir/src/main.c.o"
   "CMakeFiles/simple_graphics_engine.dir/src/main.c.o.d"
   "CMakeFiles/simple_graphics_engine.dir/src/vectors.c.o"

@@ -50,4 +50,6 @@ CMakeFiles/simple_graphics_engine.dir/src/main.c.o: \
  /usr/include/bits/getopt_core.h /usr/include/bits/unistd_ext.h \
  /usr/include/string.h /usr/include/strings.h \
  /usr/local/include/xcb/xproto.h \
+ /home/j00r/simple_graphics_engine/inc/vectors.h \
+ /home/j00r/simple_graphics_engine/inc/animation.h \
  /home/j00r/simple_graphics_engine/inc/vectors.h
