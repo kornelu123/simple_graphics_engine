@@ -2,6 +2,7 @@
 #define VECTORS_H_
 #include <stdint.h>
 #include <xcb/xcb.h>
+#include "animation.h"
 
 #define SCALE_RATIO 500
 #define ROT_X 1
@@ -23,10 +24,15 @@ typedef struct {
 	vector   pos;
 }rectangle;
 
+rectangle rot_rect(rectangle rect, uint8_t rot_dir, uint32_t deg);
 
 vector rotate(vector vec, uint32_t deg, uint8_t rot_dir);
 
 xcb_point_t vector_to_polyline(vector vec,uint32_t height, uint32_t width, vector offset);
+
+void draw_cuboid(rectangle rect, xcb_connection_t *con, xcb_drawable_t win, xcb_gcontext_t b_foreground, vector vec_pos, uint32_t width, uint32_t height);
+
+void draw_triangle(triangle tri, xcb_connection_t *con, xcb_drawable_t win, xcb_gcontext_t b_foreground,vector vec_pos,uint32_t height, uint32_t width);
 
 vector rotate_x(int deg, vector vec,double rad);
 
